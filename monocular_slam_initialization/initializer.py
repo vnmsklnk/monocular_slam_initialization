@@ -95,7 +95,7 @@ class Initializer:
         print("# triangulated points: ", new_pts_count)
 
         if new_pts_count > self.num_min_features:
-            err = map.optimize(verbose=False, rounds=20, use_robust_kernel=True)
+            err = map.optimize(verbose=False, rounds=20, use_robust_kernel=self.use_robust_kernel)
             print("# init optimization error^2: %f" % err)
 
             num_map_points = len(map.points)
