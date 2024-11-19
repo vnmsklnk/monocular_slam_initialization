@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-from .utils import add_ones, poseRt
+from .utils import add_ones, inv_T, poseRt
 
 
 class Frame:
@@ -12,6 +12,7 @@ class Frame:
         self.tcw = None
         self.Rwc = None
         self.Ow = None
+        self.Twc = None
         self.K = K
         self.fx = K[0, 0]
         self.fy = K[1, 1]
@@ -61,6 +62,7 @@ class Frame:
         self.tcw = self.Tcw[:3, 3]
         self.Rwc = self.Rcw.T
         self.Ow = -(self.Rwc @ self.tcw)  # origin of camera frame w.r.t world
+        self.Twc = inv_T(pose)
 
     def project(self, xcs):
         projs = self.K @ xcs.T

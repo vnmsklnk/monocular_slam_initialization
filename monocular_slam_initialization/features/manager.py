@@ -49,4 +49,8 @@ class FeatureManager:
     def detectAndCompute(self, frame, mask=None):
         frame = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
         kps, des = self._feature_detector.detectAndCompute(frame, mask)
+        if len(kps) > self.num_features:
+            order = np.argsort([kp.response for kp in kps])[::-1][: self.num_features]
+            kps = np.array(kps)[order]
+            des = np.array(des)[order]
         return kps, des

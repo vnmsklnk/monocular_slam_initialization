@@ -54,4 +54,13 @@ colors = np.array(colors) / 255
 point_cloud = o3d.geometry.PointCloud()
 point_cloud.points = o3d.utility.Vector3dVector(positions)
 point_cloud.colors = o3d.utility.Vector3dVector(colors)
-o3d.visualization.draw_geometries([point_cloud])
+ref_coord_frame = (
+    o3d.geometry.TriangleMesh().create_coordinate_frame().paint_uniform_color([1, 0, 0])
+)
+cur_coord_frame = (
+    o3d.geometry.TriangleMesh()
+    .create_coordinate_frame()
+    .paint_uniform_color([0, 1, 0])
+    .transform(current.Twc)
+)
+o3d.visualization.draw_geometries([point_cloud] + [ref_coord_frame, cur_coord_frame])
