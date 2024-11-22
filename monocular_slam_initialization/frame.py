@@ -38,6 +38,7 @@ class Frame:
         self.kpsn = self.unproject_points(self.kpsu)
         self.points = np.array([None] * len(self.kpsu))
         self.kid = None
+        self.outliers = np.full(self.kpsu.shape[0], False, dtype=bool) # actually it's not used
 
     def set_point_match(self, p, idx):
         self.points[idx] = p

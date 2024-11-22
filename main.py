@@ -37,7 +37,7 @@ initializer = msi.Initializer(
 )
 reference = msi.Frame(ref_img, feature_manager, K, D)
 current = msi.Frame(cur_img, feature_manager, K, D)
-points = initializer.initialize(reference, current)
+points = initializer.initialize(reference, current).points
 
 if len(points) < num_fin_features:
     print("Not enough points for initialization!")

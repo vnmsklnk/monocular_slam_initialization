@@ -124,4 +124,4 @@ class Initializer:
             print("Inializer: ok!")
         else:
             print("Inializer: ko!")
-        return map.points
+        return map
