@@ -1,0 +1,12 @@
+[submodule "monocular_slam_initialization/thirdparty/accelerated_features"]
+	path = monocular_slam_initialization/thirdparty/accelerated_features
+	url = https://github.com/verlab/accelerated_features
+[submodule "monocular_slam_initialization/thirdparty/SuperPointPretrainedNetwork"]
+	path = monocular_slam_initialization/thirdparty/SuperPointPretrainedNetwork
+	url = https://github.com/magicleap/SuperPointPretrainedNetwork
+[submodule "monocular_slam_initialization/thirdparty/LightGlue"]
+	path = monocular_slam_initialization/thirdparty/LightGlue
+	url = https://github.com/cvg/LightGlue
+[submodule "monocular_slam_initialization/g2opy/g2opy"]
+	path = monocular_slam_initialization/g2opy/g2opy
+	url = https://github.com/uoip/g2opy
